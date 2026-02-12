@@ -6,6 +6,7 @@ export interface ServicePackage {
   duration: string;
   features: string[];
   isPremium?: boolean;
+  category: 'wash' | 'detail';
 }
 
 export interface ChatMessage {
