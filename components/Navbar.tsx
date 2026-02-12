@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ onBookClick, onNavigate, currentView })
           onClick={() => onNavigate('home')}
           className="flex items-center space-x-2 group outline-none"
         >
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-2xl shadow-lg shadow-blue-900/40 group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center font-bold text-2xl shadow-lg shadow-emerald-900/40 group-hover:scale-110 transition-transform text-white">
             M
           </div>
           <span className="text-2xl font-bold tracking-tight text-white font-brand">Mushy's Detailing</span>
@@ -33,13 +33,13 @@ const Navbar: React.FC<NavbarProps> = ({ onBookClick, onNavigate, currentView })
         <div className="hidden md:flex items-center space-x-8 text-sm font-medium">
           <button 
             onClick={() => onNavigate('home')}
-            className={`transition-colors ${currentView === 'home' ? 'text-blue-400' : 'text-gray-300 hover:text-white'}`}
+            className={`transition-colors ${currentView === 'home' ? 'text-emerald-400' : 'text-gray-300 hover:text-white'}`}
           >
             Home
           </button>
           <button 
             onClick={() => onNavigate('services')}
-            className={`transition-colors ${currentView === 'services' ? 'text-blue-400' : 'text-gray-300 hover:text-white'}`}
+            className={`transition-colors ${currentView === 'services' ? 'text-emerald-400' : 'text-gray-300 hover:text-white'}`}
           >
             Services
           </button>
@@ -57,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ onBookClick, onNavigate, currentView })
           </button>
           <button 
             onClick={onBookClick}
-            className="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full transition-all shine-effect font-semibold shadow-lg shadow-blue-600/20"
+            className="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-full transition-all shine-effect font-semibold shadow-lg shadow-emerald-600/20 text-white"
           >
             Book Now
           </button>

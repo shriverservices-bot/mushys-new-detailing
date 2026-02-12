@@ -48,7 +48,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen text-white selection:bg-blue-500 selection:text-white">
+    <div className="min-h-screen text-white selection:bg-emerald-500 selection:text-white">
       <Navbar 
         onBookClick={() => handleOpenBooking()} 
         onNavigate={navigateTo}
@@ -74,7 +74,7 @@ const App: React.FC = () => {
 
             <section ref={galleryRef} id="gallery" className="py-20">
               <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-                <h2 className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                <h2 className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
                   Real Shop Results
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
@@ -91,7 +91,7 @@ const App: React.FC = () => {
             </div>
             
             {/* CTA for those browsing services */}
-            <div className="mt-20 max-w-4xl mx-auto glass p-12 rounded-[40px] text-center border-blue-500/20">
+            <div className="mt-20 max-w-4xl mx-auto glass p-12 rounded-[40px] text-center border-emerald-500/20">
               <h3 className="text-3xl font-bold mb-4">Still Not Sure?</h3>
               <p className="text-gray-400 mb-8">Our AI Smart Advisor can analyze your car's condition and pick the perfect plan for you.</p>
               <button 
