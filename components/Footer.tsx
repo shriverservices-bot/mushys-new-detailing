@@ -1,12 +1,15 @@
-
 import React from 'react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate: (view: 'home' | 'services' | 'ai' | 'gallery') => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-[#030508] border-t border-white/5 py-12 px-4">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-1">
-          <div className="flex items-center space-x-2 mb-6">
+          <div className="flex items-center space-x-2 mb-6 cursor-pointer" onClick={() => onNavigate('home')}>
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">M</div>
             <span className="text-xl font-bold tracking-tight font-brand">Mushy's Detailing</span>
           </div>
@@ -18,20 +21,20 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Explore</h4>
           <ul className="space-y-4 text-sm text-gray-500">
-            <li><a href="#services" className="hover:text-blue-400 transition-colors">Pricing</a></li>
-            <li><a href="#gallery" className="hover:text-blue-400 transition-colors">Real Results</a></li>
-            <li><a href="#ai-consultant" className="hover:text-blue-400 transition-colors">AI Advisor</a></li>
-            <li><a href="#" className="hover:text-blue-400 transition-colors">Gift Cards</a></li>
+            <li><button onClick={() => onNavigate('services')} className="hover:text-blue-400 transition-colors">Pricing</button></li>
+            <li><button onClick={() => onNavigate('gallery')} className="hover:text-blue-400 transition-colors">Real Results</button></li>
+            <li><button onClick={() => onNavigate('ai')} className="hover:text-blue-400 transition-colors">AI Advisor</button></li>
+            <li><button className="hover:text-blue-400 transition-colors">Gift Cards</button></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Company</h4>
           <ul className="space-y-4 text-sm text-gray-500">
-            <li><a href="#" className="hover:text-blue-400 transition-colors">About Us</a></li>
-            <li><a href="#" className="hover:text-blue-400 transition-colors">Careers</a></li>
-            <li><a href="#" className="hover:text-blue-400 transition-colors">Contact</a></li>
-            <li><a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a></li>
+            <li><button onClick={() => onNavigate('home')} className="hover:text-blue-400 transition-colors">About Us</button></li>
+            <li><button className="hover:text-blue-400 transition-colors">Careers</button></li>
+            <li><button className="hover:text-blue-400 transition-colors">Contact</button></li>
+            <li><button className="hover:text-blue-400 transition-colors">Privacy Policy</button></li>
           </ul>
         </div>
 
