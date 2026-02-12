@@ -1,7 +1,20 @@
 import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// Initialize client lazily to avoid crash on load if key is missing
+let ai: any = null;
+
+const getClient = () => {
+  if (!ai) {
+    const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+    if (!apiKey) {
+      console.warn("Gemini API Key is missing. AI features will not work.");
+    }
+    // @ts-ignore
+    ai = new GoogleGenAI({ apiKey });
+  }
+  return ai;
+};
 
 const SYSTEM_INSTRUCTION = `
 You are "Mushy's Detailing Virtual Consultant." Your goal is to help users find the perfect car wash or detailing package.
@@ -18,7 +31,9 @@ Keep responses concise but persuasive.
 
 export const getAIResponse = async (history: ChatMessage[], userInput: string): Promise<string> => {
   try {
-    const response = await ai.models.generateContent({
+    const client = getClient();
+    // @ts-ignore
+    const response = await client.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: [
         ...history.map(m => ({ role: m.role, parts: [{ text: m.text }] })),
